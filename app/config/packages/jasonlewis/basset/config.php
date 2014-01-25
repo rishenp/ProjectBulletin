@@ -27,7 +27,7 @@ return array(
     */
 
     'collections' => array(
-
+       
         'public' => function($collection)
         {
             $collection->directory('assets/css', function($collection)
@@ -38,8 +38,12 @@ return array(
             $collection->directory('assets/js', function($collection)
             {
                 $collection->javascript('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
-                //$collection->add('bootstrap/bootstrap.js');
-                $collection->requireDirectory('../../../vendor/twbs/bootstrap/js');
+                $collection->add('bootstrap/bootstrap.js');
+                //$collection->requireDirectory('../../../vendor/twbs/bootstrap/js');
+                $collection->requireDirectory('../../../vendor/twbs/bootstrap/assets/dist/bootstrap.min.js');
+
+                
+
             })->apply('JsMin');
         },
 
@@ -175,7 +179,7 @@ return array(
     |
     */
 
-    'gzip' => false,
+    'gzip' => true,
 
     /*
     |--------------------------------------------------------------------------
